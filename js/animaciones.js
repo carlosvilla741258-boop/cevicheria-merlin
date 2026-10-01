@@ -123,7 +123,8 @@
           gsap.fromTo(tarjeta.querySelector('.trio-foto img'), { scale: 1.3 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: tarjeta, containerAnimation: deslizar, start: 'left right', end: 'right left', scrub: true } });
         });
       } else {
-        gsap.from('.trio', { y: 50, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.trios-tarjetas', start: 'top 85%' } });
+        // En celular las tarjetas las mueve Swiper (carruseles.js): animamos el mazo completo, no cada tarjeta
+        gsap.from('.trios-tarjetas', { y: 60, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.trios-tarjetas', start: 'top 88%' } });
       }
 
       // ---------- Combos ----------
@@ -167,11 +168,8 @@
         });
       }
 
-      // ---------- Galería: las fotos se destapan ----------
-      gsap.fromTo('.g', { clipPath: 'inset(100% 0% 0% 0% round 26px)' }, {
-        clipPath: 'inset(0% 0% 0% 0% round 26px)', duration: 1.3, stagger: 0.15, ease: 'expo.out',
-        scrollTrigger: { trigger: '.galeria-grid', start: 'top 75%' },
-      });
+      // ---------- Galería: el carrusel (Swiper) sube al aparecer ----------
+      gsap.from('.galeria-swiper', { y: 80, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.galeria-swiper', start: 'top 85%' } });
 
       // ---------- Banda de azulejos que corre con el scroll ----------
       gsap.fromTo('.azulejos', { backgroundPosition: '0px 0px' }, {
@@ -221,7 +219,7 @@
       // ---------- Con Lenis: las fotos se inclinan según la velocidad del scroll ----------
       const lenis = window.merlinLenis;
       if (lenis && escritorio) {
-        const inclinar = gsap.utils.toArray('.g, .manifiesto-foto, .trio-foto')
+        const inclinar = gsap.utils.toArray('.manifiesto-foto, .trio-foto')
           .map((el) => gsap.quickTo(el, 'skewY', { duration: 0.6, ease: 'power3' }));
         const alMover = ({ velocity }) => {
           const angulo = gsap.utils.clamp(-6, 6, (velocity || 0) * 0.2);

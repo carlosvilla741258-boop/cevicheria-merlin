@@ -16,6 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Yellowtail&amp;display=swap">
   <link rel="preload" as="image" href="img/fotos/hero-plato.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.3.0/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
   {
@@ -169,12 +171,13 @@
           <h2 class="titulo-xl" data-titulo>Tríos<br>marinos</h2>
           <p class="trios-texto">Todos llevan nuestro ceviche de pescado. Elige tu combinación y pídela por WhatsApp.</p>
           <div class="sticker" aria-label="27 soles cada uno"><small>cada uno</small><strong>S/ 27</strong></div>
-          <p class="trios-ayuda" aria-hidden="true">Sigue bajando <svg class="i"><use href="#i-flecha"/></svg></p>
+          <p class="trios-ayuda" aria-hidden="true"><span class="solo-escritorio">Sigue bajando</span><span class="solo-movil">Desliza las tarjetas</span> <svg class="i"><use href="#i-flecha"/></svg></p>
         </div>
 
         <div class="trios-tarjetas">
+        <div class="trios-carril">
         <article class="trio" data-item>
-          <figure class="trio-foto"><img src="img/fotos/arroz-mariscos.jpg" alt="Arroz con mariscos" loading="lazy" width="1000" height="667"></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
+          <figure class="trio-foto"><a class="ampliable" href="img/fotos/arroz-mariscos.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Trío 1 · Arroz con mariscos" aria-label="Ver en grande: Trío 1, Arroz con mariscos"><img src="img/fotos/arroz-mariscos.jpg" alt="Arroz con mariscos" loading="lazy" width="1000" height="667"></a></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
           <div class="trio-cuerpo">
             <span class="trio-num" aria-hidden="true">01</span>
             <h3>Trío 1</h3>
@@ -184,7 +187,7 @@
         </article>
 
         <article class="trio" data-item>
-          <figure class="trio-foto"><img src="img/fotos/chaufa.jpg" alt="Chaufa de mariscos" loading="lazy" width="1000" height="667"></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
+          <figure class="trio-foto"><a class="ampliable" href="img/fotos/chaufa.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Trío 2 · Chaufa de mariscos" aria-label="Ver en grande: Trío 2, Chaufa de mariscos"><img src="img/fotos/chaufa.jpg" alt="Chaufa de mariscos" loading="lazy" width="1000" height="667"></a></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
           <div class="trio-cuerpo">
             <span class="trio-num" aria-hidden="true">02</span>
             <h3>Trío 2</h3>
@@ -194,7 +197,7 @@
         </article>
 
         <article class="trio" data-item>
-          <figure class="trio-foto"><img src="img/fotos/arroz-merlin.jpg" alt="Arroz a lo Merlin" loading="lazy" width="1000" height="1500"><span class="trio-casa">De la casa</span></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
+          <figure class="trio-foto"><a class="ampliable" href="img/fotos/arroz-merlin.jpg" data-pswp-width="1000" data-pswp-height="1500" data-leyenda="Trío 3 · Arroz a lo Merlin" aria-label="Ver en grande: Trío 3, Arroz a lo Merlin"><img src="img/fotos/arroz-merlin.jpg" alt="Arroz a lo Merlin" loading="lazy" width="1000" height="1500"></a><span class="trio-casa">De la casa</span></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
           <div class="trio-cuerpo">
             <span class="trio-num" aria-hidden="true">03</span>
             <h3>Trío 3</h3>
@@ -204,7 +207,7 @@
         </article>
 
         <article class="trio" data-item>
-          <figure class="trio-foto"><img src="img/fotos/arroz-criollo.jpg" alt="Arroz criollo de mariscos" loading="lazy" width="1000" height="1500"></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
+          <figure class="trio-foto"><a class="ampliable" href="img/fotos/arroz-criollo.jpg" data-pswp-width="1000" data-pswp-height="1500" data-leyenda="Trío 4 · Arroz criollo de mariscos" aria-label="Ver en grande: Trío 4, Arroz criollo de mariscos"><img src="img/fotos/arroz-criollo.jpg" alt="Arroz criollo de mariscos" loading="lazy" width="1000" height="1500"></a></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
           <div class="trio-cuerpo">
             <span class="trio-num" aria-hidden="true">04</span>
             <h3>Trío 4</h3>
@@ -214,7 +217,7 @@
         </article>
 
         <article class="trio" data-item>
-          <figure class="trio-foto"><img src="img/fotos/causa.jpg" alt="Causa de pulpa de cangrejo" loading="lazy" width="1000" height="1333"></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
+          <figure class="trio-foto"><a class="ampliable" href="img/fotos/causa.jpg" data-pswp-width="1000" data-pswp-height="1333" data-leyenda="Trío 5 · Causa de pulpa de cangrejo" aria-label="Ver en grande: Trío 5, Causa de pulpa de cangrejo"><img src="img/fotos/causa.jpg" alt="Causa de pulpa de cangrejo" loading="lazy" width="1000" height="1333"></a></figure><span class="trio-badge" aria-hidden="true"><img src="img/fotos/ceviche.jpg" alt="" loading="lazy"></span>
           <div class="trio-cuerpo">
             <span class="trio-num" aria-hidden="true">05</span>
             <h3>Trío 5</h3>
@@ -223,11 +226,14 @@
           </div>
         </article>
 
+        </div>
+        <div class="trios-swiper-pie"><div class="trios-paginacion"></div><span class="trios-contador"></span></div>
+        </div>
+
         <div class="trios-final">
           <p class="script script--celeste">¿no sabes cuál?</p>
           <p>Escríbenos y te ayudamos a elegir.</p>
           <a class="btn btn-celeste" data-wa="Hola Merlin, ¿qué trío me recomiendan?" href="https://wa.me/51934088928" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Consultar</a>
-        </div>
         </div>
       </div>
       <div class="trios-progreso" aria-hidden="true"><span></span></div>
@@ -301,19 +307,34 @@
       </div>
     </section>
 
-    <!-- Galería -->
-    <section class="galeria">
-      <div class="container galeria-grid">
+    <!-- Galería: carrusel con Swiper -->
+    <section class="galeria" aria-label="Galería de platos">
+      <div class="container galeria-cabecera">
         <div class="galeria-texto">
           <p class="script">para compartir</p>
           <h2 class="titulo-xl" data-titulo>Del mar<br>a tu mesa</h2>
           <p>Ceviche, chicharrón, jalea y causa: los infaltables de una buena cevichería.</p>
         </div>
-        <figure class="g g1" data-velocidad="1"><img src="img/fotos/ceviche-mesa.jpg" alt="Ceviche con calamares fritos, choclo y camote" loading="lazy" width="1000" height="1500"></figure>
-        <figure class="g g2" data-velocidad="2"><img src="img/fotos/chicharron.jpg" alt="Chicharrón de calamar con limón" loading="lazy" width="1000" height="667"></figure>
-        <figure class="g g3" data-velocidad="-0.6"><img src="img/fotos/jalea.jpg" alt="Jalea mixta con salsa criolla" loading="lazy" width="1000" height="1500"></figure>
-        <figure class="g g4" data-velocidad="1.6"><img src="img/fotos/causa.jpg" alt="Causa limeña" loading="lazy" width="1000" height="1333"></figure>
-        <p class="galeria-nota">Imágenes referenciales</p>
+        <div class="galeria-controles">
+          <button class="galeria-flecha galeria-ant" type="button" aria-label="Foto anterior"><svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+          <button class="galeria-flecha galeria-sig" type="button" aria-label="Foto siguiente"><svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        </div>
+      </div>
+      <div class="swiper galeria-swiper">
+        <div class="swiper-wrapper">
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/ceviche-mesa.jpg" data-pswp-width="1000" data-pswp-height="1498" data-leyenda="Ceviche con chicharrón" aria-label="Ver en grande: Ceviche con chicharrón"><img src="img/fotos/ceviche-mesa.jpg" alt="Ceviche con calamares fritos, choclo y camote" loading="lazy"></a><figcaption>Ceviche con chicharrón</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/ceviche.jpg" data-pswp-width="1400" data-pswp-height="933" data-leyenda="Ceviche de pescado" aria-label="Ver en grande: Ceviche de pescado"><img src="img/fotos/ceviche.jpg" alt="Ceviche de pescado con cebolla morada y culantro" loading="lazy"></a><figcaption>Ceviche de pescado</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/chicharron.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Chicharrón" aria-label="Ver en grande: Chicharrón"><img src="img/fotos/chicharron.jpg" alt="Chicharrón de calamar con limón" loading="lazy"></a><figcaption>Chicharrón</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/jalea.jpg" data-pswp-width="1000" data-pswp-height="1498" data-leyenda="Jalea mixta" aria-label="Ver en grande: Jalea mixta"><img src="img/fotos/jalea.jpg" alt="Jalea mixta con salsa criolla" loading="lazy"></a><figcaption>Jalea mixta</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/causa.jpg" data-pswp-width="1000" data-pswp-height="1333" data-leyenda="Causa de cangrejo" aria-label="Ver en grande: Causa de cangrejo"><img src="img/fotos/causa.jpg" alt="Causa limeña" loading="lazy"></a><figcaption>Causa de cangrejo</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/arroz-mariscos.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Arroz con mariscos" aria-label="Ver en grande: Arroz con mariscos"><img src="img/fotos/arroz-mariscos.jpg" alt="Arroz con mariscos" loading="lazy"></a><figcaption>Arroz con mariscos</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/sudado.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Sudado de pescado" aria-label="Ver en grande: Sudado de pescado"><img src="img/fotos/sudado.jpg" alt="Sudado de pescado" loading="lazy"></a><figcaption>Sudado de pescado</figcaption></figure>
+          <figure class="swiper-slide galeria-slide"><a class="ampliable" href="img/fotos/picante.jpg" data-pswp-width="1000" data-pswp-height="667" data-leyenda="Picante de mariscos" aria-label="Ver en grande: Picante de mariscos"><img src="img/fotos/picante.jpg" alt="Picante de mariscos" loading="lazy"></a><figcaption>Picante de mariscos</figcaption></figure>
+        </div>
+      </div>
+      <div class="container galeria-pie">
+        <div class="galeria-paginacion"></div>
+        <p class="galeria-nota">Imágenes referenciales · arrastra para ver más</p>
       </div>
     </section>
 
@@ -526,8 +547,15 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js" defer></script>
   <!-- Lenis (scroll suave) -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <!-- Swiper (carruseles) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.3.0/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/scroll-suave.js" defer></script>
+  <script src="js/carruseles.js" defer></script>
+  <!-- PhotoSwipe (fotos en grande) -->
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/umd/photoswipe.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/umd/photoswipe-lightbox.umd.min.js" defer></script>
+  <script src="js/fotos.js" defer></script>
   <script src="js/animaciones.js" defer></script>
 </body>
 </html>
