@@ -218,6 +218,19 @@
         });
       }
 
+      // ---------- Con Lenis: las fotos se inclinan según la velocidad del scroll ----------
+      const lenis = window.merlinLenis;
+      if (lenis && escritorio) {
+        const inclinar = gsap.utils.toArray('.g, .manifiesto-foto, .trio-foto')
+          .map((el) => gsap.quickTo(el, 'skewY', { duration: 0.6, ease: 'power3' }));
+        const alMover = ({ velocity }) => {
+          const angulo = gsap.utils.clamp(-6, 6, (velocity || 0) * 0.2);
+          inclinar.forEach((fn) => fn(angulo));
+        };
+        const quitar = lenis.on('scroll', alMover);
+        limpiezas.push(() => { if (typeof quitar === 'function') quitar(); });
+      }
+
       return () => limpiezas.forEach((fn) => fn());
     });
   });

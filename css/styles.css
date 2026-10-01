@@ -464,6 +464,17 @@ section, .form-card { scroll-margin-top: 72px; }
 .wa-op:hover { border-color: var(--celeste-200); background: #fff; }
 .wa-op .i { color: var(--celeste-texto); }
 
+/* ---------- Scroll suave (Lenis) ---------- */
+html.lenis, html.lenis body { height: auto; }
+html.lenis { scroll-behavior: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+.progreso-scroll { position: fixed; inset: 0 0 auto; z-index: 70; height: 3px; pointer-events: none; }
+.progreso-scroll span { display: block; height: 100%; background: var(--celeste); transform: scaleX(0); transform-origin: left; }
+.footer-bottom .subir { color: #fff; font-weight: 700; text-decoration: none; }
+.footer-bottom .subir:hover { color: var(--celeste); }
+
 /* ---------- Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -24,6 +24,16 @@
   const enlaceWhatsApp = (mensaje) => `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(mensaje)}`;
   const abrirWhatsApp = (mensaje) => window.open(enlaceWhatsApp(mensaje), '_blank', 'noopener');
 
+  // Desplaza hasta un elemento: con Lenis si está activo (scroll-suave.js), si no con el scroll nativo
+  const desplazarA = (el, bloque = 'start') => {
+    if (window.merlinIrA) {
+      // El espacio para el encabezado lo da scroll-margin-top en el CSS
+      window.merlinIrA(el, bloque === 'center' ? -(window.innerHeight - el.offsetHeight) / 2 : 0);
+    } else {
+      el.scrollIntoView({ behavior: 'smooth', block: bloque });
+    }
+  };
+
   // 13:30 -> "1:30 p. m."
   const formatoHora = (minutos) => {
     const h = Math.floor(minutos / 60);
@@ -144,7 +154,7 @@
       form.querySelector(`input[name="local"][value="${idLocal}"]`).checked = true;
       actualizarHoras();
     }
-    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    desplazarA(form);
     // En computadora dejamos el cursor en "Nombre"; en celular no, para no abrir el teclado de golpe
     if (window.matchMedia('(pointer: fine)').matches) {
       setTimeout(() => form.elements.nombre.focus({ preventScroll: true }), 700);
@@ -168,7 +178,7 @@
     mostrarEnMapa(b.dataset.verMapa);
     // En celular el mapa queda debajo de las tarjetas: lo traemos a la vista
     const r = mapa.getBoundingClientRect();
-    if (r.top < 0 || r.bottom > window.innerHeight) mapa.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (r.top < 0 || r.bottom > window.innerHeight) desplazarA(mapa, 'center');
   }));
   document.querySelectorAll('[data-reservar]').forEach((b) => b.addEventListener('click', () => irAReserva(b.dataset.reservar)));
 
