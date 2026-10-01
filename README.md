@@ -9,8 +9,10 @@ Landing de Merlin Cevichería Peruana (San Juan de Lurigancho): carta con precio
 
 ## Estructura
 
-- `index.html`, `css/styles.css`, `js/main.js`: la página.
-- `img/`: fotos optimizadas. Mientras no existan, la página muestra ilustraciones.
+- `index.html`, `css/styles.css`: la página.
+- `js/main.js`: WhatsApp, reservas, locales y menú.
+- `js/animaciones.js`: animaciones con [GSAP](https://github.com/greensock/GSAP) (ScrollTrigger y SplitText), cargado desde jsDelivr.
+- `img/fotos/`: fotos referenciales de Unsplash (créditos en `img/fotos/CREDITOS.md`). Hay que reemplazarlas por fotos reales de Merlin.
 - `herramientas/`: servidor local, generador de fotos con Higgsfield y optimizador.
 
 El número de WhatsApp y los horarios de cada local están al inicio de `js/main.js`.

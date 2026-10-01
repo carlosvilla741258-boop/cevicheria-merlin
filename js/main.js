@@ -1,3 +1,4 @@
+// Lógica de la landing: WhatsApp, reservas, locales y menú. Las animaciones están en animaciones.js.
 (() => {
   'use strict';
 
@@ -30,12 +31,7 @@
     return `${h % 12 || 12}:${String(m).padStart(2, '0')} ${h < 12 ? 'a. m.' : 'p. m.'}`;
   };
 
-  // ---------- Encabezado y menú móvil ----------
-  const header = document.getElementById('header');
-  const alHacerScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
-  alHacerScroll();
-  window.addEventListener('scroll', alHacerScroll, { passive: true });
-
+  // ---------- Menú móvil ----------
   const menuBtn = document.querySelector('.menu-btn');
   const navMovil = document.getElementById('nav-movil');
   const cerrarMenu = () => {
@@ -54,21 +50,23 @@
   // ---------- Enlaces de WhatsApp con mensaje prellenado ----------
   document.querySelectorAll('a[data-wa]').forEach((a) => { a.href = enlaceWhatsApp(a.dataset.wa); });
 
-  // ---------- Botones "Pedir por WhatsApp" de la carta ----------
+  // ---------- Botones "Pedir" de la carta ----------
   document.querySelectorAll('[data-pedido]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const opcion = btn.closest('.plato').querySelector('.opciones input:checked');
+      const opcion = btn.closest('[data-item]').querySelector('.opciones input:checked');
       const pedido = btn.dataset.pedido.replace('{opcion}', opcion ? opcion.value : '');
       abrirWhatsApp(`Hola Merlin, quiero pedir:\n*${pedido}* – S/ ${btn.dataset.precio}\n\n¿Me ayudan con mi pedido?`);
     });
   });
 
-  // Combo 2: resalta la porción elegida (arroz con mariscos o chaufa)
+  // Combo 2: la foto cambia según el acompañamiento elegido
   document.querySelectorAll('.opciones input').forEach((input) => {
     input.addEventListener('change', () => {
-      input.closest('.plato').querySelectorAll('[data-opcion]').forEach((por) => {
-        por.classList.toggle('is-off', por.dataset.opcion !== input.value);
-      });
+      const fila = input.closest('[data-item]');
+      fila.dataset.foto = input.dataset.foto;
+      const mini = fila.querySelector('.combo-mini');
+      if (mini) mini.src = `img/fotos/${input.dataset.foto}.jpg`;
+      fila.dispatchEvent(new CustomEvent('cambio-foto', { bubbles: true }));
     });
   });
 
@@ -149,7 +147,7 @@
     form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     // En computadora dejamos el cursor en "Nombre"; en celular no, para no abrir el teclado de golpe
     if (window.matchMedia('(pointer: fine)').matches) {
-      setTimeout(() => form.elements.nombre.focus({ preventScroll: true }), 600);
+      setTimeout(() => form.elements.nombre.focus({ preventScroll: true }), 700);
     }
   }
 
@@ -220,22 +218,6 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { cerrarPanel(); cerrarMenu(); }
   });
-
-  // ---------- Animaciones de entrada ----------
-  const elementos = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window) {
-    const observador = new IntersectionObserver((entradas) => {
-      entradas.forEach((entrada) => {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add('is-visible');
-          observador.unobserve(entrada.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    elementos.forEach((el) => observador.observe(el));
-  } else {
-    elementos.forEach((el) => el.classList.add('is-visible'));
-  }
 
   document.querySelectorAll('[data-anio]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();
