@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "merlin",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["herramientas/servidor.mjs", "5500"],
+      "port": 5500
+    }
+  ]
+}

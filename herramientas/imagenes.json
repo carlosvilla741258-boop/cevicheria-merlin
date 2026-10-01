@@ -1,0 +1,18 @@
+[
+  {
+    "name": "hero-ceviche",
+    "aspect_ratio": "3:4",
+    "prompt": "Professional overhead food photography of an authentic Peruvian ceviche de pescado served in a wide shallow white ceramic bowl: glossy cubes of fresh white fish marinated in lime juice (leche de tigre), thin slices of purple red onion, chopped fresh cilantro, small red aji limo pepper rings, a round slice of orange sweet potato (camote), a piece of large-kernel Peruvian corn (choclo) and toasted cancha corn on the side, halved green limes. The bowl sits on a pale sky-blue table with a folded navy blue linen napkin. Bright natural daylight, crisp, fresh, vibrant appetizing colors, high detail, shallow depth of field, clean minimal coastal style. No text, no logos, no people."
+  },
+  { "name": "platos/ceviche", "dish": "Peruvian ceviche de pescado: cubes of white fish marinated in lime with thin red onion slices, chopped cilantro, aji limo rings, a slice of sweet potato and Peruvian corn" },
+  { "name": "platos/chicharron", "dish": "Peruvian chicharron de pescado: crispy golden fried fish chunks with lime wedges and a little salsa criolla of thin red onion and cilantro" },
+  { "name": "platos/arroz-mariscos", "dish": "Peruvian arroz con mariscos: reddish-orange seafood rice with shrimp, squid rings, mussels and scallops, topped with salsa criolla" },
+  { "name": "platos/chaufa-mariscos", "dish": "Peruvian chaufa de mariscos: wok-fried rice with mixed seafood, scrambled egg pieces, chopped spring onion and soy sauce" },
+  { "name": "platos/papa-huancaina", "dish": "Peruvian papa a la huancaina: sliced boiled yellow potatoes covered in creamy yellow huancaina sauce, with a black olive and a slice of hard-boiled egg on a lettuce leaf" },
+  { "name": "platos/arroz-criollo", "dish": "Peruvian arroz criollo de mariscos: golden seafood rice with shrimp and squid, peas, red bell pepper strips and fresh cilantro" },
+  { "name": "platos/causa-cangrejo", "dish": "Peruvian causa limena de cangrejo: a round tower of smooth yellow potato layers filled with crab meat salad, topped with avocado slices, small dots of mayonnaise and a black olive" },
+  { "name": "platos/jalea-mixta", "dish": "Peruvian jalea mixta: crispy fried mixed seafood (fish, squid rings and shrimp) with fried yuca sticks, salsa criolla and lime wedges" },
+  { "name": "platos/sudado-pescado", "dish": "Peruvian sudado de pescado: a fish fillet stewed in a bright tomato, red onion and aji amarillo broth with fresh cilantro, in a deep white bowl" },
+  { "name": "platos/picante-mariscos", "dish": "Peruvian picante de mariscos: creamy orange spicy seafood stew with shrimp, squid and mussels in aji panca and aji amarillo sauce, sprinkled with chopped parsley" },
+  { "name": "platos/arroz-blanco", "dish": "a neat dome of fluffy Peruvian white rice with garlic, garnished with a small sprig of parsley" }
+]

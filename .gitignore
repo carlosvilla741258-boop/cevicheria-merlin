@@ -1,0 +1,11 @@
+# Fotos originales de Higgsfield (pesadas): en el repo solo van las optimizadas de img/
+higgsfield-originales/
+
+# Configuración local y secretos
+.env
+.claude/settings.local.json
+
+# Varios
+node_modules/
+*.log
+Thumbs.db
