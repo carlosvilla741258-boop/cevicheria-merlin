@@ -64,6 +64,8 @@ section, .form-card { scroll-margin-top: 72px; }
   text-transform: uppercase;
   color: var(--marino);
 }
+/* Las máscaras de SplitText (animaciones.js) recortan a la altura de la línea: les damos aire arriba para las tildes (TRÍOS) */
+[data-titulo] > div > div { padding-top: .16em; margin-top: -.16em; }
 .script {
   display: inline-block;
   margin-bottom: 8px;
@@ -259,7 +261,7 @@ section, .form-card { scroll-margin-top: 72px; }
 .trios::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--azulejo-claro) 0 0 / 110px; opacity: .06; }
 .trios-pista { display: flex; align-items: center; gap: 28px; width: max-content; padding: 120px 6vw 90px; }
 .trios-intro { flex: none; width: min(440px, 80vw); padding-right: 2vw; }
-.trios-intro .titulo-xl { margin-bottom: 18px; color: #fff; font-size: clamp(4rem, 9vw, 8.4rem); }
+.trios-intro .titulo-xl { margin-bottom: 18px; color: #fff; font-size: clamp(4rem, 7.4vw, 7rem); } /* "MARINOS" tiene que entrar en una línea */
 .trios-texto { max-width: 24em; margin-bottom: 26px; font-size: 1.05rem; }
 .trios-ayuda { display: inline-flex; align-items: center; gap: 8px; margin-top: 30px; color: var(--celeste); font-size: 13px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .trios-tarjetas { flex: none; }

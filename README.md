@@ -12,6 +12,7 @@ Landing de Merlin Cevichería Peruana (San Juan de Lurigancho): carta con precio
 - `index.html`, `css/styles.css`: la página.
 - `css/uiverse.css`: componentes de [Uiverse](https://github.com/uiverse-io/galaxy) (licencia MIT) adaptados a los colores de Merlin. Autores: 0x-Sarthak (botón con círculo), CaptainToy y ChanduOffl (botón de enviar), Alanav29 (etiqueta flotante), NlghtM4re (selector con brillo) y Gianluks90 (aviso de confirmación).
 - `js/main.js`: WhatsApp, reservas, locales y menú.
+- `js/pedido.js` y `css/pedido.css`: pedido armado. Los botones "Agregar" juntan varios platos; la barra "Tu pedido" abre un panel con cantidades, total y forma de entrega (delivery o recojo en un local), y se envía todo en un solo mensaje de WhatsApp. El pedido queda guardado en el navegador del cliente. Si se quitan estos dos archivos, los botones vuelven a pedir de a un plato.
 - `js/animaciones.js`: animaciones con [GSAP](https://github.com/greensock/GSAP) (ScrollTrigger y SplitText), cargado desde jsDelivr.
 - `js/carruseles.js`: carruseles con [Swiper](https://github.com/nolimits4web/swiper): la galería de platos y, en celular, los tríos como mazo de cartas.
 - `js/fotos.js`: fotos en grande con [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) (galería y tríos, con botón para pedir el trío).

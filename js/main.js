@@ -77,10 +77,17 @@
   });
 
   // ---------- Botones "Pedir" de la carta ----------
+  // Con el pedido armado (pedido.js) el plato se suma al pedido; sin él, se pide ese plato solo por WhatsApp
   document.querySelectorAll('[data-pedido]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const opcion = btn.closest('[data-item]').querySelector('.opciones input:checked');
+      const item = btn.closest('[data-item]');
+      const opcion = item.querySelector('.opciones input:checked');
       const pedido = btn.dataset.pedido.replace('{opcion}', opcion ? opcion.value : '');
+      if (window.merlinPedido) {
+        const foto = item.querySelector('.trio-foto img, .combo-mini');
+        window.merlinPedido.agregar({ nombre: pedido, precio: Number(btn.dataset.precio), foto: foto ? foto.getAttribute('src') : '', boton: btn });
+        return;
+      }
       abrirWhatsApp(`Hola Merlin, quiero pedir:\n*${pedido}* – S/ ${btn.dataset.precio}\n\n¿Me ayudan con mi pedido?`);
       avisar('¡Pedido listo!', 'Abrimos WhatsApp con tu pedido. Solo dale enviar.');
     });
@@ -254,4 +261,7 @@
   });
 
   document.querySelectorAll('[data-anio]').forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+  // Para pedido.js
+  window.merlinWhatsApp = { abrir: abrirWhatsApp, avisar, locales: LOCALES };
 })();

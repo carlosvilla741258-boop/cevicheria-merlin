@@ -38,15 +38,18 @@
           });
         },
       });
-      // En los tríos, botón para pedir directo por WhatsApp
+      // En los tríos, botón para pedir directo por WhatsApp (o agregarlo al pedido armado, si está pedido.js)
+      const conPedido = Boolean(window.merlinPedido);
       ui.registerElement({
         name: 'pedir',
         order: 10,
         isButton: true,
         tagName: 'button',
         appendTo: 'root',
-        title: 'Pedir este trío por WhatsApp',
-        html: '<svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Pedir este trío',
+        title: conPedido ? 'Agregar este trío a tu pedido' : 'Pedir este trío por WhatsApp',
+        html: conPedido
+          ? '<svg class="i" aria-hidden="true"><use href="#i-bag"/></svg>Agregar al pedido'
+          : '<svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Pedir este trío',
         onInit: (el, pswp) => {
           pswp.on('change', () => {
             const enlace = pswp.currSlide.data.element;
@@ -57,6 +60,7 @@
           const enlace = pswp.currSlide.data.element;
           const boton = enlace && enlace.closest('[data-item]')?.querySelector('[data-pedido]');
           if (boton) boton.click();
+          if (conPedido) pswp.close(); // así se ve cómo el trío entra al pedido
         },
       });
     });
