@@ -1,0 +1,143 @@
+/* =========================================================
+   Componentes de Uiverse.io adaptados a los colores de Merlin.
+   Uiverse (github.com/uiverse-io/galaxy) — licencia MIT. Cada bloque nombra a su autor.
+   ========================================================= */
+
+/* ---------- 1. Botón con círculo que se expande ----------
+   Basado en "hungry-penguin-30" de 0x-Sarthak */
+.btn-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 58px;
+  padding: 0 6px 0 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--celeste);
+  color: var(--marino-900);
+  font-size: 15.5px;
+  font-weight: 800;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .3s ease .15s;
+}
+.btn-cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 6px; right: 6px; bottom: 6px;
+  width: 46px;
+  border-radius: 999px;
+  background: var(--marino);
+  transition: width .7s cubic-bezier(.65, 0, .35, 1);
+}
+.btn-cta-ico { display: grid; place-items: center; flex: none; width: 46px; height: 46px; color: #fff; }
+.btn-cta-ico .i { transition: transform .5s ease; }
+.btn-cta:hover, .btn-cta:focus-visible { color: #fff; }
+.btn-cta:hover::before, .btn-cta:focus-visible::before { width: calc(100% - 12px); }
+.btn-cta:hover .btn-cta-ico .i { transform: translateX(4px); }
+.btn-cta .i-wa { color: var(--wa); }
+/* Variante para fondos celestes: base marino y círculo celeste */
+.btn-cta--marino { background: var(--marino); color: #fff; }
+.btn-cta--marino::before { background: var(--celeste); }
+.btn-cta--marino .btn-cta-ico { color: var(--marino-900); }
+.btn-cta--marino:hover, .btn-cta--marino:focus-visible { color: var(--marino-900); }
+.btn-cta--marino .i-wa { color: var(--marino-900); }
+
+/* ---------- 2. Botón de enviar con ícono que vuela ----------
+   Basado en "witty-ladybug-99" de CaptainToy y "helpless-chipmunk-35" de ChanduOffl */
+.btn-enviar { position: relative; isolation: isolate; overflow: hidden; }
+.btn-enviar::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%; top: 50%;
+  width: 120%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--marino-700);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .5s ease;
+}
+.btn-enviar:hover::before { transform: translate(-50%, -50%) scale(1); }
+.btn-enviar .i-wa { transition: transform .35s ease; }
+.btn-enviar:hover .i-wa { transform: rotate(-14deg) scale(1.18); }
+.btn-enviar .texto, .btn-enviar .texto-enviando { transition: opacity .25s ease; }
+.btn-enviar .texto-enviando { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; }
+.btn-enviar.is-enviando .texto { opacity: 0; }
+.btn-enviar.is-enviando .texto-enviando { opacity: 1; transition-delay: .25s; }
+.btn-enviar.is-enviando .i-wa { animation: volar .9s cubic-bezier(.5, 0, .75, 0) forwards; }
+@keyframes volar {
+  25% { transform: translateX(-10px) rotate(-20deg) scale(1.2); }
+  100% { transform: translateX(520px) rotate(-20deg) scale(1.2); opacity: 0; }
+}
+
+/* ---------- 3. Campos con etiqueta flotante ----------
+   Basado en "tough-ape-65" de Alanav29 */
+.campo-flotante { position: relative; }
+.campo-flotante > label {
+  position: absolute;
+  left: 13px; top: 15px;
+  padding: 0 5px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--texto-suave);
+  font-size: 15.5px;
+  font-weight: 600;
+  pointer-events: none;
+  transition: top .2s ease, font-size .2s ease, color .2s ease, background-color .2s ease, transform .2s ease;
+}
+.campo-flotante input:focus + label,
+.campo-flotante input:not(:placeholder-shown) + label,
+.campo-flotante textarea:focus + label,
+.campo-flotante textarea:not(:placeholder-shown) + label {
+  top: -9px;
+  background: #fff;
+  color: var(--celeste-texto);
+  font-size: 12.5px;
+  font-weight: 800;
+  transform: translateX(6px);
+}
+
+/* ---------- 4. Selector con brillo ----------
+   Basado en "mighty-wasp-74" de NlghtM4re */
+.combo .opciones { display: inline-flex; gap: 4px; padding: 4px; border-radius: 16px; background: var(--celeste-200); box-shadow: 0 8px 24px -12px rgba(71, 175, 239, .9); }
+.combo .opciones span { padding: 8px 14px; border: 0; border-radius: 12px; color: var(--marino); }
+.combo .opciones label:hover span { background: var(--celeste-300); }
+.combo .opciones input:checked + span { background: var(--marino); color: #fff; box-shadow: 0 6px 20px -4px rgba(71, 175, 239, .95); }
+
+/* ---------- 5. Aviso de confirmación ----------
+   Basado en "funny-impala-78" de Gianluks90 */
+.aviso {
+  position: fixed;
+  left: 22px; bottom: 22px;
+  z-index: 65;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: min(360px, calc(100vw - 110px));
+  padding: 10px 18px 10px 10px;
+  border: 3px solid transparent;
+  border-radius: 24px;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(75deg, var(--celeste), var(--marino), var(--celeste-300), var(--celeste)) border-box;
+  background-size: 100% 100%, 300% 300%;
+  box-shadow: 0 24px 50px -20px rgba(10, 42, 87, .55);
+  animation: aviso-borde 4s ease infinite alternate;
+  transform: translateY(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, transform .3s ease, visibility 0s linear .3s;
+}
+.aviso.is-visible { opacity: 1; transform: none; visibility: visible; transition: opacity .3s ease, transform .3s ease; }
+.aviso-ico { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; background: #E5F8EC; color: #128C3A; }
+.aviso-ico .i { width: 24px; height: 24px; }
+.aviso-titulo { display: block; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--marino); }
+.aviso-texto { display: block; font-size: 13.5px; color: var(--texto-suave); line-height: 1.35; }
+@keyframes aviso-borde { from { background-position: 0 0, 0% 50%; } to { background-position: 0 0, 100% 50%; } }
+@media (max-width: 760px) { .aviso { left: 16px; bottom: 16px; } }

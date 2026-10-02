@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.3.0/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/uiverse.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -125,7 +126,7 @@
       <div class="container hero-pie">
         <p class="hero-texto">Ceviche, tríos marinos y combos para el almuerzo en familia. En San Juan de Lurigancho o por delivery.</p>
         <div class="hero-ctas">
-          <a class="btn btn-celeste btn-magnetico" href="#carta">Ver la carta<svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          <a class="btn-cta btn-magnetico" href="#carta"><span>Ver la carta</span><span class="btn-cta-ico" aria-hidden="true"><svg class="i"><use href="#i-flecha"/></svg></span></a>
           <a class="btn btn-borde btn-magnetico" href="#form-reserva"><svg class="i i-wa" aria-hidden="true"><use href="#i-wa"/></svg>Reservar mesa</a>
         </div>
         <ul class="hero-meta">
@@ -233,7 +234,7 @@
         <div class="trios-final">
           <p class="script script--celeste">¿no sabes cuál?</p>
           <p>Escríbenos y te ayudamos a elegir.</p>
-          <a class="btn btn-celeste" data-wa="Hola Merlin, ¿qué trío me recomiendan?" href="https://wa.me/51934088928" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg>Consultar</a>
+          <a class="btn-cta" data-wa="Hola Merlin, ¿qué trío me recomiendan?" href="https://wa.me/51934088928" target="_blank" rel="noopener"><span>Consultar</span><span class="btn-cta-ico" aria-hidden="true"><svg class="i i-wa"><use href="#i-wa"/></svg></span></a>
         </div>
       </div>
       <div class="trios-progreso" aria-hidden="true"><span></span></div>
@@ -364,9 +365,9 @@
           </div>
 
           <div class="campos">
-            <div class="campo campo--full">
-              <label for="r-nombre">Nombre</label>
-              <input id="r-nombre" name="nombre" type="text" placeholder="¿A nombre de quién?" autocomplete="name" maxlength="60" required>
+            <div class="campo campo--full campo-flotante">
+              <input id="r-nombre" name="nombre" type="text" placeholder=" " autocomplete="name" maxlength="60" required>
+              <label for="r-nombre">¿A nombre de quién?</label>
             </div>
             <fieldset class="campo campo--full">
               <legend>Local</legend>
@@ -393,13 +394,13 @@
                 <button type="button" data-paso="1" aria-label="Una persona más">+</button>
               </div>
             </div>
-            <div class="campo campo--full">
-              <label for="r-comentario">Comentario <span class="opcional">(opcional)</span></label>
-              <textarea id="r-comentario" name="comentario" rows="3" maxlength="300" placeholder="Ej.: es un cumpleaños, venimos con niños…"></textarea>
+            <div class="campo campo--full campo-flotante">
+              <textarea id="r-comentario" name="comentario" rows="3" maxlength="300" placeholder=" "></textarea>
+              <label for="r-comentario">¿Algo más? Cumpleaños, niños… <span class="opcional">(opcional)</span></label>
             </div>
           </div>
 
-          <button class="btn btn-marino btn-block" type="submit"><svg class="i i-wa" aria-hidden="true"><use href="#i-wa"/></svg>Enviar reserva por WhatsApp</button>
+          <button class="btn btn-marino btn-block btn-enviar" type="submit"><svg class="i i-wa" aria-hidden="true"><use href="#i-wa"/></svg><span class="texto">Enviar reserva por WhatsApp</span><span class="texto-enviando" aria-hidden="true">¡Abriendo WhatsApp!</span></button>
           <p class="form-nota"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span>Se abrirá WhatsApp con tu solicitud lista para enviar. La reserva queda confirmada cuando te respondamos.</span></p>
         </form>
       </div>
@@ -466,7 +467,7 @@
         <p class="script">¿antojo en casa?</p>
         <h2 class="titulo-xl" data-titulo>Pide tu ceviche<br>por WhatsApp</h2>
         <div class="delivery-cta">
-          <a class="btn btn-marino btn-magnetico" data-wa="Hola Merlin, quiero hacer un pedido para delivery." href="https://wa.me/51934088928" target="_blank" rel="noopener"><svg class="i i-wa" aria-hidden="true"><use href="#i-wa"/></svg>Pedir delivery</a>
+          <a class="btn-cta btn-cta--marino btn-magnetico" data-wa="Hola Merlin, quiero hacer un pedido para delivery." href="https://wa.me/51934088928" target="_blank" rel="noopener"><span>Pedir delivery</span><span class="btn-cta-ico" aria-hidden="true"><svg class="i i-wa"><use href="#i-wa"/></svg></span></a>
           <a class="delivery-tel" href="tel:+51934088928"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>934 088 928</a>
         </div>
       </div>
@@ -523,6 +524,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- Aviso de confirmación (Uiverse) -->
+  <div class="aviso" role="status" aria-live="polite">
+    <span class="aviso-ico" aria-hidden="true"><svg class="i"><use href="#i-wa"/></svg></span>
+    <div><strong class="aviso-titulo"></strong><span class="aviso-texto"></span></div>
+  </div>
 
   <!-- Botón flotante de WhatsApp -->
   <div class="wa-float">

@@ -10,6 +10,7 @@ Landing de Merlin Cevichería Peruana (San Juan de Lurigancho): carta con precio
 ## Estructura
 
 - `index.html`, `css/styles.css`: la página.
+- `css/uiverse.css`: componentes de [Uiverse](https://github.com/uiverse-io/galaxy) (licencia MIT) adaptados a los colores de Merlin. Autores: 0x-Sarthak (botón con círculo), CaptainToy y ChanduOffl (botón de enviar), Alanav29 (etiqueta flotante), NlghtM4re (selector con brillo) y Gianluks90 (aviso de confirmación).
 - `js/main.js`: WhatsApp, reservas, locales y menú.
 - `js/animaciones.js`: animaciones con [GSAP](https://github.com/greensock/GSAP) (ScrollTrigger y SplitText), cargado desde jsDelivr.
 - `js/carruseles.js`: carruseles con [Swiper](https://github.com/nolimits4web/swiper): la galería de platos y, en celular, los tríos como mazo de cartas.

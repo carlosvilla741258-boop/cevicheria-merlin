@@ -24,6 +24,18 @@
   const enlaceWhatsApp = (mensaje) => `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(mensaje)}`;
   const abrirWhatsApp = (mensaje) => window.open(enlaceWhatsApp(mensaje), '_blank', 'noopener');
 
+  // Aviso de confirmación (componente de Uiverse) cada vez que mandamos a alguien a WhatsApp
+  const aviso = document.querySelector('.aviso');
+  let ocultarAviso;
+  const avisar = (titulo, texto) => {
+    if (!aviso) return;
+    aviso.querySelector('.aviso-titulo').textContent = titulo;
+    aviso.querySelector('.aviso-texto').textContent = texto;
+    aviso.classList.add('is-visible');
+    clearTimeout(ocultarAviso);
+    ocultarAviso = setTimeout(() => aviso.classList.remove('is-visible'), 5000);
+  };
+
   // Desplaza hasta un elemento: con Lenis si está activo (scroll-suave.js), si no con el scroll nativo
   const desplazarA = (el, bloque = 'start') => {
     if (window.merlinIrA) {
@@ -58,7 +70,10 @@
   navMovil.addEventListener('click', (e) => { if (e.target.closest('a')) cerrarMenu(); });
 
   // ---------- Enlaces de WhatsApp con mensaje prellenado ----------
-  document.querySelectorAll('a[data-wa]').forEach((a) => { a.href = enlaceWhatsApp(a.dataset.wa); });
+  document.querySelectorAll('a[data-wa]').forEach((a) => {
+    a.href = enlaceWhatsApp(a.dataset.wa);
+    a.addEventListener('click', () => avisar('¡Listo!', 'Abrimos WhatsApp con tu mensaje. Solo dale enviar.'));
+  });
 
   // ---------- Botones "Pedir" de la carta ----------
   document.querySelectorAll('[data-pedido]').forEach((btn) => {
@@ -66,6 +81,7 @@
       const opcion = btn.closest('[data-item]').querySelector('.opciones input:checked');
       const pedido = btn.dataset.pedido.replace('{opcion}', opcion ? opcion.value : '');
       abrirWhatsApp(`Hola Merlin, quiero pedir:\n*${pedido}* – S/ ${btn.dataset.precio}\n\n¿Me ayudan con mi pedido?`);
+      avisar('¡Pedido listo!', 'Abrimos WhatsApp con tu pedido. Solo dale enviar.');
     });
   });
 
@@ -146,7 +162,14 @@
     ];
     const comentario = datos.comentario.value.trim();
     if (comentario) lineas.push(`*Comentario:* ${comentario}`);
+    // WhatsApp se abre en el mismo clic (si esperamos, el navegador bloquea la ventana); el ícono vuela a la vez
     abrirWhatsApp(lineas.join('\n'));
+    const enviar = form.querySelector('.btn-enviar');
+    if (enviar) {
+      enviar.classList.add('is-enviando');
+      setTimeout(() => enviar.classList.remove('is-enviando'), 1800);
+    }
+    avisar('¡Reserva lista!', 'Abrimos WhatsApp con tu reserva. Solo dale enviar.');
   });
 
   function irAReserva(idLocal) {
