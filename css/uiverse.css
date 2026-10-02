@@ -11,6 +11,7 @@
   overflow: hidden;
   display: inline-flex;
   align-items: center;
+  justify-content: space-between; /* si el botón ocupa todo el ancho (celular), la flecha sigue dentro del círculo */
   gap: 14px;
   height: 58px;
   padding: 0 6px 0 26px;

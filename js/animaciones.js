@@ -193,6 +193,19 @@
 
       // ---------- Delivery y pie de página ----------
       gsap.fromTo('.delivery-track', { xPercent: 0 }, { xPercent: -35, ease: 'none', scrollTrigger: { trigger: '.delivery', start: 'top bottom', end: 'bottom top', scrub: true } });
+      // La moto (Lottie) cruza la pista mientras bajas; si subes, da la vuelta
+      const moto = document.querySelector('.delivery-moto');
+      if (moto) {
+        const pista = moto.parentElement;
+        gsap.set(moto, { left: 0 });
+        gsap.fromTo(moto, { x: () => -moto.offsetWidth }, {
+          x: () => pista.offsetWidth, ease: 'none',
+          scrollTrigger: {
+            trigger: pista, start: 'top bottom', end: 'clamp(bottom top)', scrub: 0.6, invalidateOnRefresh: true,
+            onUpdate: (self) => moto.classList.toggle('is-reversa', self.direction < 0),
+          },
+        });
+      }
       // La palabra gigante del pie se junta desde letras separadas (sin cortarla: el contorno se dañaría)
       gsap.from('.footer-gigante', { letterSpacing: '0.22em', opacity: 0, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.footer', start: 'top 85%' } });
 

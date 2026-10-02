@@ -32,6 +32,7 @@
     aviso.querySelector('.aviso-titulo').textContent = titulo;
     aviso.querySelector('.aviso-texto').textContent = texto;
     aviso.classList.add('is-visible');
+    document.dispatchEvent(new CustomEvent('merlin:aviso')); // lottie.js dibuja el check
     clearTimeout(ocultarAviso);
     ocultarAviso = setTimeout(() => aviso.classList.remove('is-visible'), 5000);
   };

@@ -4,8 +4,8 @@ Landing de Merlin Cevichería Peruana (San Juan de Lurigancho): carta con precio
 
 ## Verla en tu computadora
 
-- Abre `index.html` con doble clic, o
-- ejecuta `node herramientas/servidor.mjs` y entra a http://localhost:5500
+- Ejecuta `node herramientas/servidor.mjs` y entra a http://localhost:5500, o
+- abre `index.html` con doble clic (así las animaciones Lottie no cargan y se ven los íconos fijos).
 
 ## Estructura
 
@@ -15,9 +15,10 @@ Landing de Merlin Cevichería Peruana (San Juan de Lurigancho): carta con precio
 - `js/animaciones.js`: animaciones con [GSAP](https://github.com/greensock/GSAP) (ScrollTrigger y SplitText), cargado desde jsDelivr.
 - `js/carruseles.js`: carruseles con [Swiper](https://github.com/nolimits4web/swiper): la galería de platos y, en celular, los tríos como mazo de cartas.
 - `js/fotos.js`: fotos en grande con [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe) (galería y tríos, con botón para pedir el trío).
+- `js/lottie.js` y `lottie/`: animaciones con [Lottie](https://github.com/airbnb/lottie-web) (versión liviana, SVG): el pez del logo nadando, el check del aviso, la moto de delivery que cruza la pista con el scroll y la burbuja de "escribiendo…" junto a WhatsApp. Son dibujos originales hechos con `herramientas/generar-lottie.mjs`; un diseñador puede reemplazar los JSON por los suyos (After Effects o LottieFiles).
 - `js/scroll-suave.js`: scroll suave con [Lenis](https://github.com/darkroomengineering/lenis), sincronizado con GSAP. Para comparar sin Lenis, abre la página con `?sin-lenis`.
 - `img/fotos/`: fotos referenciales de Unsplash (créditos en `img/fotos/CREDITOS.md`). Hay que reemplazarlas por fotos reales de Merlin.
-- `herramientas/`: servidor local, generador de fotos con Higgsfield y optimizador.
+- `herramientas/`: servidor local, generador de fotos con Higgsfield, optimizador y generador de las animaciones Lottie (`node herramientas/generar-lottie.mjs`).
 
 El número de WhatsApp y los horarios de cada local están al inicio de `js/main.js`.
 
